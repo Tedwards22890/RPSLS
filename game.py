@@ -89,7 +89,7 @@ class Game:
 
     def scissor(self):
         if (self.p2.gesture=="0"):
-            print("Scissor is smashed by rock")
+            print("Scissor are smashed by rock")
             self.p2.score+=1
         elif (self.p2.gesture=="1"):
             print("Scissor slices up paper")
