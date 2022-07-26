@@ -6,6 +6,7 @@ class User(Player):
 
 
     def set_gesture(self):
+        print(f"{self.name}'s Turn")
         while (self.gesture!="0" and self.gesture!="1" and self.gesture!="2" and self.gesture!="3" and self.gesture!="4"):
             for x in range(len(self.attacks)):
                 print(f"{self.attacks[x]['number']}) {self.attacks[x]['name']}")

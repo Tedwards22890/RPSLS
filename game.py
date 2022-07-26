@@ -1,5 +1,6 @@
 from user import User
 from ai import Ai
+import time
 
 
 class Game:
@@ -11,17 +12,20 @@ class Game:
     def player_select(self):
         user_choice = input("Enter 1 for single player or 2 for multi player: ")
         if user_choice == "1":
+            time.sleep(1)
             self.p1 = User()
             self.p2 = Ai()
         elif user_choice == "2":
+            time.sleep(1)
+            print("Player 1: ")
             self.p1 = User()
-            print("Player 2:")
+            time.sleep(1)
+            print("Player 2: ")
             self.p2 = User()
 
     def combat(self):
         while (self.p1.score < 2 and self.p2.score < 2):
-            print(f"Current score:\n{self.p1.name}: {self.p1.score}")
-            print(f"{self.p2.name}: {self.p2.score}")
+            print(f"Current score:\n{self.p1.name}: {self.p1.score}\n {self.p2.name}: {self.p2.score}")
             self.p1.set_gesture()
             self.p2.set_gesture()
             print(f"{self.p1.name} chooses {self.p1.attacks[int(self.p1.gesture)]['name']}")
