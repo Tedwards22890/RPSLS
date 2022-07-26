@@ -3,7 +3,12 @@ import random
 class Ai:
     def __init__(self):
         super().__init__()
+        self.ai_namer()
         
-    def gesture(self):
-        choice =str(random.randrange(1,10))
-        return choice
+    def set_gesture(self):
+        self.gesture =str(random.randrange(0,4))
+
+
+    def ai_namer(self):
+        names=["Sheldon","Penny","Leonard","Amy","Howard","Bernadette","Raj","Priya","Stuart","Barry","Missy"]
+        self.name=random.choice(names)
