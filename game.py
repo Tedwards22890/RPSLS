@@ -27,9 +27,6 @@ class Game:
 
     def combat(self):
         while (self.p1.score < 2 and self.p2.score < 2):
-            time.sleep(1)
-            print(f"Current score:\n{self.p1.name}: {self.p1.score}\n {self.p2.name}: {self.p2.score}")
-            time.sleep(1)
             self.p1.set_gesture()
             self.clear()
             print(f"Current score:\n{self.p1.name}: {self.p1.score}\n {self.p2.name}: {self.p2.score}")
@@ -53,7 +50,8 @@ class Game:
                 self.spock()
             self.p1.clear_gesture()
             self.p2.clear_gesture()
-            time.sleep(3)
+            time.sleep(2)
+            print(f"Current score:\n{self.p1.name}: {self.p1.score}\n {self.p2.name}: {self.p2.score}")
             input("Press any key to continue...")
         
         if (self.p1.score > self.p2.score):
@@ -135,5 +133,6 @@ class Game:
 
     def run(self):
         self.player_select()
+        time.sleep(1)
         self.combat()
     

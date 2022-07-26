@@ -27,9 +27,14 @@ game=Game()
 keep_playing=True
 while (keep_playing==True):
     game.run()
-    choice=input("Play again? (y/n)")
-    if (choice=="y"):
+    choice=input("Play again? (y) or any other key to exit: ")
+    if (choice=="y" or choice=="Y"):
         keep_playing=True
     else:
         keep_playing=False
-
+time.sleep(1)
+print("Thanks for playing RPSLS!")
+time.sleep(1)
+print("Created/designed/programmed by Travis Edwards")
+time.sleep(1)
+print("Special thanks to Kyra Marie for help with play testing!")
