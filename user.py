@@ -8,8 +8,7 @@ class User(Player):
     def set_gesture(self):
         for x in range(len(self.attacks)):
             print(f"{self.attacks[x]['number']}) {self.attacks[x]['name']}")
-        #self.gesture=input("0) Rock\n1) Paper\n2) Scissors\n3) Lizard\n4) Spock\nChoose your gesture: ")
-
+        self.gesture=input("Your selection: ")
 
     
     def namer(self):

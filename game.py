@@ -24,11 +24,95 @@ class Game:
             print(f"{self.p2.name}: {self.p2.score}")
             self.p1.set_gesture()
             self.p2.set_gesture()
-            print(f"{")
+            print(f"{self.p1.name} chooses {self.p1.attacks[self.p1.gesture]['name']}")
+            print(f"{self.p2.name} chooses {self.p2.attacks[self.p2.gesture]['name']}")
             if (self.p1.gesture==self.p2.gesture):
+                print("It's a tie!")
+            elif (self.p1.gesture=="0"):
+                self.rock()
+            elif (self.p1.gesture=="1"):
+                self.paper()
+            elif (self.p1.gesture=="2"):
+                self.scissor()
+            elif (self.p1.gesture=="3"):
+                self.lizard()
+            elif (self.p1.gesture=="4"):
+                self.spock()
+                
+
+    def rock(self):
+        if (self.p2.gesture=="1"):
+            print("Rock is covered by paper")
+            self.p2.score+=1
+        elif (self.p2.gesture=="2"):
+            print("Rock smashes scissors")
+            self.p1.score+=1
+        elif (self.p2.gesture=="3"):
+            print("Rock crushes lizard")
+            self.p1.score+=1
+        elif (self.p2.gesture=="4"):
+            print("Rock is vaporized!")
+            self.p2.score+=1
+
+    def paper(self):
+        if (self.p2.gesture=="0"):
+            print("Paper covers rock")
+            self.p1.score+=1
+        elif (self.p2.gesture=="2"):
+            print("Paper is cut by scissors")
+            self.p2.score+=1
+        elif (self.p2.gesture=="3"):
+            print("Paper is eaten by lizard")
+            self.p2.score+=1
+        elif (self.p2.gesture=="4"):
+            print("Paper has disproven spock!")
+            self.p1.score+=1
+
+    def scissor(self):
+        if (self.p2.gesture=="0"):
+            print("Scissor is smashed by rock")
+            self.p2.score+=1
+        elif (self.p2.gesture=="1"):
+            print("Scissor slices up paper")
+            self.p1.score+=1
+        elif (self.p2.gesture=="3"):
+            print("scissor has decapitated lizard")
+            self.p1.score+=1
+        elif (self.p2.gesture=="4"):
+            print("scissors was destroyed by spock")
+            self.p2.score+=1
+
+    def lizard(self):
+        if (self.p2.gesture=="0"):
+            print("lizard was crushed by rock")
+            self.p2.score+=1
+        elif (self.p2.gesture=="1"):
+            print("lizard eats paper")
+            self.p1.score+=1
+        elif (self.p2.gesture=="2"):
+            print("")
+            self.p.score+=1
+        elif (self.p2.gesture=="4"):
+            print("")
+            self.p.score+=1
+
+    def spock(self):
+        if (self.p2.gesture=="0"):
+            print("")
+            self.p.score+=1
+        elif (self.p2.gesture=="1"):
+            print("")
+            self.p.score+=1
+        elif (self.p2.gesture=="2"):
+            print("")
+            self.p.score+=1
+        elif (self.p2.gesture=="3"):
+            print("")
+            self.p.score+=1
 
 
 
     def run(self):
         self.player_select()
+        self.combat()
     
