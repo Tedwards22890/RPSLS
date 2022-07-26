@@ -28,7 +28,7 @@ keep_playing=True
 while (keep_playing==True):
     game.run()
     choice=input("Play again? (y/n)")
-    if (choice==y):
+    if (choice=="y"):
         keep_playing=True
     else:
         keep_playing=False

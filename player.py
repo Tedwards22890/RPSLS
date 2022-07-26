@@ -12,8 +12,8 @@ class Player:
             {'number':'4','name':'Spock'}
         ]
 
-    def action(self,selection):
-        self.selection=selection
+    def clear_gesture(self):
+        self.gesture=None
     
 
     

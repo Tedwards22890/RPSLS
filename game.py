@@ -9,23 +9,23 @@ class Game:
 
 
     def player_select(self):
-        user_choice = input("Enter 1 for single player or 2 for multi player")
+        user_choice = input("Enter 1 for single player or 2 for multi player: ")
         if user_choice == "1":
             self.p1 = User()
             self.p2 = Ai()
         elif user_choice == "2":
             self.p1 = User()
-            print("Plyer 2:")
+            print("Player 2:")
             self.p2 = User()
 
     def combat(self):
-        while (self.p1.score <2 and self.p2.score<2):
+        while (self.p1.score < 2 and self.p2.score < 2):
             print(f"Current score:\n{self.p1.name}: {self.p1.score}")
             print(f"{self.p2.name}: {self.p2.score}")
             self.p1.set_gesture()
             self.p2.set_gesture()
-            print(f"{self.p1.name} chooses {self.p1.attacks[self.p1.gesture]['name']}")
-            print(f"{self.p2.name} chooses {self.p2.attacks[self.p2.gesture]['name']}")
+            print(f"{self.p1.name} chooses {self.p1.attacks[int(self.p1.gesture)]['name']}")
+            print(f"{self.p2.name} chooses {self.p2.attacks[int(self.p2.gesture)]['name']}")
             if (self.p1.gesture==self.p2.gesture):
                 print("It's a tie!")
             elif (self.p1.gesture=="0"):
@@ -38,7 +38,13 @@ class Game:
                 self.lizard()
             elif (self.p1.gesture=="4"):
                 self.spock()
-                
+            self.p1.clear_gesture()
+            self.p2.clear_gesture()
+        
+        if (self.p1.score > self.p2.score):
+            print(f"{self.p1.name} Wins!")
+        else:
+            print(f"{self.p2.name} wins!")
 
     def rock(self):
         if (self.p2.gesture=="1"):
@@ -90,25 +96,25 @@ class Game:
             print("lizard eats paper")
             self.p1.score+=1
         elif (self.p2.gesture=="2"):
-            print("")
-            self.p.score+=1
+            print("lizard is decapitated by scissors")
+            self.p2.score+=1
         elif (self.p2.gesture=="4"):
-            print("")
-            self.p.score+=1
+            print("Lizard poisons spock")
+            self.p1.score+=1
 
     def spock(self):
         if (self.p2.gesture=="0"):
-            print("")
-            self.p.score+=1
+            print("spock vaporizes rock")
+            self.p1.score+=1
         elif (self.p2.gesture=="1"):
-            print("")
-            self.p.score+=1
+            print("spock has been disproven by paper")
+            self.p2.score+=1
         elif (self.p2.gesture=="2"):
-            print("")
-            self.p.score+=1
+            print("spock has smashed scissors")
+            self.p1.score+=1
         elif (self.p2.gesture=="3"):
-            print("")
-            self.p.score+=1
+            print("spock was poisoned by the lizard")
+            self.p2.score+=1
 
 
 
