@@ -1,12 +1,14 @@
 from user import User
 from ai import Ai
 import time
+import os
 
 
 class Game:
     def __init__(self):
         self.p1 = None
         self.p2 = None
+        self.clear=lambda: os.system('cls')
 
 
     def player_select(self):
@@ -25,11 +27,18 @@ class Game:
 
     def combat(self):
         while (self.p1.score < 2 and self.p2.score < 2):
+            time.sleep(1)
             print(f"Current score:\n{self.p1.name}: {self.p1.score}\n {self.p2.name}: {self.p2.score}")
+            time.sleep(1)
             self.p1.set_gesture()
+            self.clear()
+            print(f"Current score:\n{self.p1.name}: {self.p1.score}\n {self.p2.name}: {self.p2.score}")
+            time.sleep(1)
             self.p2.set_gesture()
             print(f"{self.p1.name} chooses {self.p1.attacks[int(self.p1.gesture)]['name']}")
+            time.sleep(1)
             print(f"{self.p2.name} chooses {self.p2.attacks[int(self.p2.gesture)]['name']}")
+            time.sleep(1)
             if (self.p1.gesture==self.p2.gesture):
                 print("It's a tie!")
             elif (self.p1.gesture=="0"):
@@ -44,6 +53,8 @@ class Game:
                 self.spock()
             self.p1.clear_gesture()
             self.p2.clear_gesture()
+            time.sleep(3)
+            input("Press any key to continue...")
         
         if (self.p1.score > self.p2.score):
             print(f"{self.p1.name} Wins!")
