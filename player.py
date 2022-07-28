@@ -11,3 +11,6 @@ class Player:
             {'number':'3','name':'Lizard'},
             {'number':'4','name':'Spock'}
         ]
+
+    def clear_gesture(self):
+        self.gesture=None

@@ -52,7 +52,7 @@ class Game:
             self.p2.clear_gesture()
             time.sleep(2)
             print(f"Current score:\n{self.p1.name}: {self.p1.score}\n {self.p2.name}: {self.p2.score}")
-            input("Press any key to continue...")
+            input("Press the Enter to continue...")
         
         if (self.p1.score > self.p2.score):
             print(f"{self.p1.name} Wins!")
